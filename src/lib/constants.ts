@@ -1,0 +1,217 @@
+import type { CategoryDef, Medium } from "@/types";
+
+export const MEDIA: { id: Medium; label: string; short: string; icon: string; blurb: string }[] = [
+  { id: "tv", label: "Live TV", short: "TV", icon: "📺", blurb: "Broadcast channels streaming right now" },
+  { id: "radio", label: "Radio", short: "Radio", icon: "📻", blurb: "Stations and talk from every continent" },
+  { id: "webcams", label: "Webcams", short: "Cams", icon: "🛰️", blurb: "Live windows onto the real world" },
+];
+
+const def = (id: string, label: string, icon: string, tagline: string): CategoryDef => ({
+  id,
+  label,
+  icon,
+  tagline,
+});
+
+export const TV_CATEGORIES: CategoryDef[] = [
+  def("top-news", "Top News", "🔴", "The headlines everyone is watching"),
+  def("news", "News", "📰", "Round-the-clock global coverage"),
+  def("movies", "Movies", "🎬", "Films rolling 24/7, no queue"),
+  def("sports", "Sports", "🏟️", "Live games, highlights and analysis"),
+  def("music", "Music", "🎵", "Video hits and non-stop playlists"),
+  def("entertainment", "Entertainment", "✨", "Talk, drama and everything in between"),
+  def("kids", "Kids", "🧸", "Safe, colourful and always on"),
+  def("animation", "Animation", "🎨", "Cartoons and anime marathons"),
+  def("documentary", "Documentary", "🔭", "True stories, deeply told"),
+  def("series", "Series", "📺", "Episodic binges on a loop"),
+  def("comedy", "Comedy", "😂", "Stand-up, sitcoms and sketch"),
+  def("science", "Science", "🧪", "Curiosity, engineering and space"),
+  def("culture", "Culture", "🏛️", "Art, history and heritage"),
+  def("travel", "Travel", "🧭", "Destinations from your sofa"),
+  def("cooking", "Cooking", "🍳", "Recipes and food journeys"),
+  def("lifestyle", "Lifestyle", "💎", "Design, fashion and wellbeing"),
+  def("education", "Education", "🎓", "Learn something between ads"),
+  def("business", "Business", "📈", "Markets, macro and money"),
+  def("auto", "Auto", "🏎️", "Motorsport and machines"),
+  def("outdoor", "Outdoor", "🏕️", "Wild places and open air"),
+  def("family", "Family", "👨‍👩‍👧", "Something for every age"),
+  def("classic", "Classic", "🎞️", "Retro broadcasts and golden era"),
+  def("general", "General", "🌐", "All-rounder national channels"),
+  def("public", "Public", "🏢", "Public service broadcasters"),
+  def("legislative", "Legislative", "⚖️", "Parliaments and policy, unfiltered"),
+  def("religious", "Religious", "🕊️", "Faith and worship networks"),
+  def("relax", "Relax", "🌙", "Ambient and slow television"),
+  def("weather", "Weather", "🌦️", "Forecasts and radar loops"),
+  def("shop", "Shop", "🛍️", "Teleshopping, unironically"),
+  def("show", "Shows", "🎪", "Variety and live formats"),
+  def("interactive", "Interactive", "🎮", "Play-along and interactive feeds"),
+];
+
+export const RADIO_CATEGORIES: CategoryDef[] = [
+  def("hits", "Top Hits", "🔥", "Whatever the world has on repeat"),
+  def("pop", "Pop", "🎤", "Charts, bops and earworms"),
+  def("rock", "Rock", "🎸", "Riffs from garage to arena"),
+  def("news", "News Radio", "📰", "Bulletins and breaking audio"),
+  def("talk", "Talk", "🗣️", "Conversation, debate and call-ins"),
+  def("electronic", "Electronic", "🔊", "House, techno and everything 4/4"),
+  def("jazz", "Jazz", "🎺", "Blue notes around the clock"),
+  def("classical", "Classical", "🎻", "Concert halls on tap"),
+  def("chill", "Chill", "🫧", "Lo-fi, ambient and downtempo"),
+  def("hip-hop", "Hip-Hop", "🎧", "Bars, beats and block parties"),
+  def("latin", "Latin", "💃", "Salsa, reggaetón and beyond"),
+  def("oldies", "Oldies", "📼", "Timeless radio gold"),
+  def("country", "Country", "🤠", "Nashville and the back roads"),
+  def("indie", "Indie", "🪕", "Left of the dial"),
+  def("metal", "Metal", "🤘", "Loud and unapologetic"),
+  def("soul", "Soul", "💜", "Soul, funk and R&B"),
+  def("blues", "Blues", "🎷", "Twelve bars, endless feeling"),
+  def("folk", "Folk", "🍂", "Roots, traditional and acoustic"),
+  def("reggae", "Reggae", "🌴", "One drop, all day"),
+  def("easy-listening", "Easy Listening", "☕", "Soft focus soundtracks"),
+  def("80s", "80s", "🕹️", "Synths, hairspray, hits"),
+  def("90s", "90s", "💿", "The decade that still slaps"),
+  def("70s", "70s", "🪩", "Disco, funk and flares"),
+  def("schlager", "Schlager", "🎊", "European feel-good classics"),
+  def("religious", "Religious", "🕊️", "Worship and spoken faith"),
+  def("sports", "Sports Radio", "🏟️", "Commentary and phone-ins"),
+  def("christmas", "Christmas", "🎄", "Yes, all year round"),
+  def("politics", "Politics", "🏛️", "Policy and power, on air"),
+];
+
+export const WEBCAM_CATEGORIES: CategoryDef[] = [
+  def("beach", "Beaches", "🏖️", "Shorelines in real time"),
+  def("city", "Cityscapes", "🌆", "Skylines and busy squares"),
+  def("nature", "Nature", "🌲", "Forests, plains and wilderness"),
+  def("animals", "Animals", "🦁", "Feeders, dens and sanctuaries"),
+  def("mountain", "Mountains", "🏔️", "Peaks, passes and alpine air"),
+  def("space", "Space", "🚀", "Observatories and orbital views"),
+  def("harbor", "Harbours", "⚓", "Ports and working waterfronts"),
+  def("landmark", "Landmarks", "🗿", "Icons you can watch live"),
+  def("ski", "Ski", "🎿", "Slopes and snow reports"),
+  def("underwater", "Underwater", "🐠", "Reefs and aquarium cams"),
+  def("volcano", "Volcanoes", "🌋", "Craters under watch"),
+  def("airport", "Airports", "✈️", "Runways and approach cams"),
+  def("train", "Railways", "🚂", "Platforms and mainlines"),
+  def("traffic", "Traffic", "🚦", "Highways and junctions"),
+  def("river", "Rivers", "🏞️", "Currents and crossings"),
+  def("lake", "Lakes", "🪷", "Still water, live"),
+  def("park", "Parks", "🌳", "Public green space"),
+  def("sports", "Sports Cams", "🏐", "Pitches, courts and tracks"),
+  def("weather", "Weather Cams", "🌦️", "Sky watch from everywhere"),
+  def("construction", "Construction", "🏗️", "Time-lapse in progress"),
+];
+
+export const CATEGORIES: Record<Medium, CategoryDef[]> = {
+  tv: TV_CATEGORIES,
+  radio: RADIO_CATEGORIES,
+  webcams: WEBCAM_CATEGORIES,
+};
+
+/** Rows shown on the home hub for each medium, in order. */
+export const HOME_ROWS: Record<Medium, string[]> = {
+  tv: [
+    "top-news",
+    "movies",
+    "sports",
+    "news",
+    "music",
+    "kids",
+    "documentary",
+    "entertainment",
+    "animation",
+    "science",
+    "comedy",
+    "culture",
+    "travel",
+    "series",
+    "cooking",
+    "lifestyle",
+    "business",
+    "classic",
+  ],
+  radio: [
+    "hits",
+    "pop",
+    "rock",
+    "chill",
+    "news",
+    "jazz",
+    "electronic",
+    "classical",
+    "hip-hop",
+    "latin",
+    "oldies",
+    "talk",
+    "indie",
+    "soul",
+    "country",
+    "metal",
+  ],
+  webcams: [
+    "beach",
+    "city",
+    "nature",
+    "animals",
+    "mountain",
+    "space",
+    "harbor",
+    "landmark",
+    "ski",
+    "underwater",
+    "volcano",
+    "airport",
+    "train",
+    "river",
+  ],
+};
+
+export const LANGUAGE_NAMES: Record<string, string> = {
+  aar: "Afar", abk: "Abkhaz", ace: "Acehnese", ach: "Acholi", afr: "Afrikaans", aka: "Akan",
+  als: "Albanian (Tosk)", amh: "Amharic", ara: "Arabic", arm: "Armenian", asm: "Assamese",
+  ast: "Asturian", aym: "Aymara", aze: "Azerbaijani", bak: "Bashkir", bal: "Baluchi",
+  bam: "Bambara", bel: "Belarusian", ben: "Bengali", bho: "Bhojpuri", bis: "Bislama",
+  bod: "Tibetan", bos: "Bosnian", bre: "Breton", bua: "Buryat", bul: "Bulgarian",
+  cat: "Catalan", ceb: "Cebuano", ces: "Czech", cze: "Czech", cmn: "Mandarin", cor: "Cornish",
+  cos: "Corsican", cre: "Cree", cym: "Welsh", dan: "Danish", deu: "German", div: "Dhivehi",
+  dyu: "Dyula", ell: "Greek", eng: "English", est: "Estonian", eus: "Basque", ewe: "Ewe",
+  fao: "Faroese", far: "Persian", fas: "Persian", fij: "Fijian", fil: "Filipino", fin: "Finnish",
+  fon: "Fon", fra: "French", fre: "French", fry: "Frisian", ful: "Fula", gcf: "Guadeloupean Creole",
+  gla: "Scottish Gaelic", gle: "Irish", glg: "Galician", gom: "Konkani", grn: "Guarani",
+  gug: "Guarani", guj: "Gujarati", hak: "Hakka", hat: "Haitian Creole", hau: "Hausa",
+  heb: "Hebrew", hin: "Hindi", hmn: "Hmong", hrv: "Croatian", hsb: "Upper Sorbian",
+  hun: "Hungarian", hye: "Armenian", ibo: "Igbo", iku: "Inuktitut", ind: "Indonesian",
+  isl: "Icelandic", ita: "Italian", jav: "Javanese", jpn: "Japanese", kab: "Kabyle",
+  kal: "Greenlandic", kan: "Kannada", kat: "Georgian", kaz: "Kazakh", khm: "Khmer",
+  kik: "Kikuyu", kin: "Kinyarwanda", kir: "Kyrgyz", kok: "Konkani", kom: "Komi", kor: "Korean",
+  kur: "Kurdish", lao: "Lao", lat: "Latin", lav: "Latvian", lim: "Limburgish", lin: "Lingala",
+  lit: "Lithuanian", ltz: "Luxembourgish", lub: "Luba-Katanga", lug: "Luganda", luo: "Luo",
+  lus: "Mizo", mah: "Marshallese", mai: "Maithili", mal: "Malayalam", man: "Mandinka",
+  mar: "Marathi", mkd: "Macedonian", mlg: "Malagasy", mlt: "Maltese", mon: "Mongolian",
+  mos: "Mossi", mri: "Māori", msa: "Malay", mya: "Burmese", nav: "Navajo", nbl: "Ndebele",
+  nep: "Nepali", nld: "Dutch", nor: "Norwegian", nya: "Chichewa", oci: "Occitan", ori: "Odia",
+  ory: "Odia", oss: "Ossetian", pam: "Kapampangan", pan: "Punjabi", pap: "Papiamento",
+  pol: "Polish", por: "Portuguese", pus: "Pashto", que: "Quechua", roh: "Romansh",
+  ron: "Romanian", rue: "Rusyn", run: "Kirundi", rus: "Russian", sah: "Yakut", sat: "Santali",
+  sin: "Sinhala", slk: "Slovak", slv: "Slovenian", sme: "Northern Sami", smo: "Samoan",
+  sna: "Shona", snd: "Sindhi", som: "Somali", sot: "Sesotho", spa: "Spanish", sqi: "Albanian",
+  srd: "Sardinian", srp: "Serbian", ssw: "Swati", sun: "Sundanese", swa: "Swahili",
+  swe: "Swedish", tah: "Tahitian", tam: "Tamil", tat: "Tatar", tel: "Telugu", tgk: "Tajik",
+  tgl: "Tagalog", tha: "Thai", tig: "Tigre", tir: "Tigrinya", tmh: "Tamashek", tok: "Toki Pona",
+  ton: "Tongan", tpi: "Tok Pisin", tsn: "Tswana", tso: "Tsonga", tuk: "Turkmen", tur: "Turkish",
+  twi: "Twi", tzm: "Tamazight", uig: "Uyghur", ukr: "Ukrainian", urd: "Urdu", uzb: "Uzbek",
+  ven: "Venda", vie: "Vietnamese", wol: "Wolof", xho: "Xhosa", yid: "Yiddish", yor: "Yoruba",
+  yua: "Yucatec Maya", yue: "Cantonese", zho: "Chinese", zul: "Zulu", zza: "Zazaki",
+};
+
+export function languageName(code: string): string {
+  return LANGUAGE_NAMES[code] ?? code.toUpperCase();
+}
+
+/** Country codes in the dataset that differ from the ISO 3166-1 flag code. */
+const FLAG_OVERRIDES: Record<string, string> = { uk: "gb" };
+
+export function flagEmoji(code: string): string {
+  const cc = (FLAG_OVERRIDES[code.toLowerCase()] ?? code).toUpperCase();
+  if (!/^[A-Z]{2}$/.test(cc)) return "🏳️";
+  return String.fromCodePoint(...[...cc].map((c) => 0x1f1a5 + c.charCodeAt(0)));
+}
