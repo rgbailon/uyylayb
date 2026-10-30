@@ -1208,10 +1208,15 @@ export function VideoPlayer({ item, medium, queue, mode, onClose, onToggleMode, 
                         {(
                           [
                             ["default", "Auto"],
-                            ["hd1080", "1080"],
-                            ["hd720", "720"],
-                            ["large", "480"],
+                            ["tiny", "144"],
+                            ["small", "240"],
                             ["medium", "360"],
+                            ["large", "480"],
+                            ["hd720", "720"],
+                            ["hd1080", "1080"],
+                            ["hd1440", "1440"],
+                            ["hd2160", "2160"],
+                            ["highres", "4K+"],
                           ] as const
                         ).map(([value, label]) => (
                           <button
