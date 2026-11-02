@@ -1,4 +1,5 @@
 import type { CountryMetaMap, Item, Medium, PlaySource } from "@/types";
+import { CUSTOM_WEBCAMS } from "@/lib/customStreams";
 
 const CDN = "https://cdn.jsdelivr.net/gh/famelack/famelack-data@main";
 const RAW = "https://raw.githubusercontent.com/famelack/famelack-data/main";
@@ -50,11 +51,25 @@ export function fetchCountryMeta(medium: Medium): Promise<CountryMetaMap> {
 }
 
 export function fetchCategory(medium: Medium, category: string): Promise<Item[]> {
-  return getJSON<Item[]>(paths.category(medium, category));
+  // Local curated streams are surfaced as their own category and merged into "all".
+  if (medium === "webcams" && (category === "featured" || category === "custom")) {
+    return Promise.resolve([...CUSTOM_WEBCAMS]);
+  }
+  return getJSON<Item[]>(paths.category(medium, category)).then((data) => {
+    if (medium === "webcams" && category === "all") {
+      return [...data, ...CUSTOM_WEBCAMS];
+    }
+    return data;
+  });
 }
 
 export function fetchCountry(medium: Medium, cc: string): Promise<Item[]> {
-  return getJSON<Item[]>(paths.country(medium, cc));
+  return getJSON<Item[]>(paths.country(medium, cc)).then((data) => {
+    if (medium === "webcams" && cc.toLowerCase() === "us") {
+      return [...data, ...CUSTOM_WEBCAMS];
+    }
+    return data;
+  });
 }
 
 export function fetchAll(medium: Medium): Promise<Item[]> {
@@ -62,7 +77,15 @@ export function fetchAll(medium: Medium): Promise<Item[]> {
 }
 
 export function categoryCached(medium: Medium, category: string): Item[] | null {
-  return (memory.get(paths.category(medium, category)) as Item[] | undefined) ?? null;
+  if (medium === "webcams" && (category === "featured" || category === "custom")) {
+    return [...CUSTOM_WEBCAMS];
+  }
+  const base = (memory.get(paths.category(medium, category)) as Item[] | undefined) ?? null;
+  if (!base) return null;
+  if (medium === "webcams" && category === "all") {
+    return [...base, ...CUSTOM_WEBCAMS];
+  }
+  return base;
 }
 
 export function itemKey(medium: Medium, item: Item): string {
@@ -71,6 +94,10 @@ export function itemKey(medium: Medium, item: Item): string {
 
 /** Resolve a single item from the full catalogue (used for deep links). */
 export async function findItem(medium: Medium, nanoid: string): Promise<Item | null> {
+  if (medium === "webcams") {
+    const hit = CUSTOM_WEBCAMS.find((i) => i.nanoid === nanoid);
+    if (hit) return hit;
+  }
   const all = await fetchAll(medium);
   return all.find((i) => i.nanoid === nanoid) ?? null;
 }

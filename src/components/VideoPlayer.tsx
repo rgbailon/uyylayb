@@ -65,7 +65,7 @@ export function VideoPlayer({ item, medium, queue, mode, onClose, onToggleMode, 
   const [showVision, setShowVision] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [speed, setSpeed] = useState(1);
-  const [ytQuality, setYtQuality] = useState("default");
+  const [ytQuality, setYtQuality] = useState(medium === "webcams" ? "highres" : "default");
   const [captions, setCaptions] = useState(false);
   /** Seconds behind the live edge (0 = watching live). */
   const [behind, setBehind] = useState(0);
@@ -188,6 +188,12 @@ export function VideoPlayer({ item, medium, queue, mode, onClose, onToggleMode, 
           hls.on(HlsCtor.Events.MANIFEST_PARSED, () => {
             if (disposed) return;
             setLevels(hls.levels.map((l) => ({ height: l.height || 0, bitrate: l.bitrate })));
+            // Prefer the clearest available level for webcam feeds.
+            if (medium === "webcams" && hls.levels.length > 0) {
+              const top = hls.levels.length - 1;
+              hls.currentLevel = top;
+              setLevel(top);
+            }
             startPlay();
           });
           hls.on(HlsCtor.Events.LEVEL_SWITCHED, (_e, data) => setLevel(data.level));

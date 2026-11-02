@@ -1,0 +1,113 @@
+import type { Item } from "@/types";
+
+/**
+ * Curated live YouTube streams added locally to the webcam catalogue.
+ * These are appended to the remote webcam dataset so they appear in
+ * "All webcams" and in the dedicated "Featured Live" category.
+ */
+export const CUSTOM_WEBCAMS: Item[] = [
+  {
+    nanoid: "yt-KHy_n-EMWY8",
+    name: "EarthCam Live: Times Square Crossroads (New York City, NY)",
+    sources: { youtube: ["https://www.youtube.com/live/KHy_n-EMWY8"] },
+    languages: ["eng"],
+    country: "us",
+    isGeoBlocked: false,
+  },
+  {
+    nanoid: "yt-VXo0VqVcbK4",
+    name: "Times Square: 1560 Broadway View Live",
+    sources: { youtube: ["https://www.youtube.com/live/VXo0VqVcbK4"] },
+    languages: ["eng"],
+    country: "us",
+    isGeoBlocked: false,
+  },
+  {
+    nanoid: "yt-Zz9hMrxl20I",
+    name: "Live Stream — Public Square, Watertown NY — Jake Johnson Properties",
+    sources: { youtube: ["https://www.youtube.com/live/Zz9hMrxl20I"] },
+    languages: ["eng"],
+    country: "us",
+    isGeoBlocked: false,
+  },
+  {
+    nanoid: "yt-2_PDaUJbfuI",
+    name: "EarthCam Live: SUMMIT One Vanderbilt (New York City, NY)",
+    sources: { youtube: ["https://www.youtube.com/live/2_PDaUJbfuI"] },
+    languages: ["eng"],
+    country: "us",
+    isGeoBlocked: false,
+  },
+  {
+    nanoid: "yt-5C9oM7C2Q9k",
+    name: "EarthCam Live: World Trade Center - New York City, NY",
+    sources: { youtube: ["https://www.youtube.com/live/5C9oM7C2Q9k"] },
+    languages: ["eng"],
+    country: "us",
+    isGeoBlocked: false,
+  },
+  {
+    nanoid: "yt-T_QsY01tIK0",
+    name: "LGA Airport LIVE 24/7 – LaGuardia, New York",
+    sources: { youtube: ["https://www.youtube.com/live/T_QsY01tIK0"] },
+    languages: ["eng"],
+    country: "us",
+    isGeoBlocked: false,
+  },
+  {
+    nanoid: "yt-l7b5RFAkKhY",
+    name: "New York City Harbor, Brooklyn, New York | StreamTime LIVE",
+    sources: { youtube: ["https://www.youtube.com/live/l7b5RFAkKhY"] },
+    languages: ["eng"],
+    country: "us",
+    isGeoBlocked: false,
+  },
+  {
+    nanoid: "yt-tErYxn2UM5Y",
+    name: "EarthCam Live: Brooklyn Bridge Cam",
+    sources: { youtube: ["https://www.youtube.com/live/tErYxn2UM5Y"] },
+    languages: ["eng"],
+    country: "us",
+    isGeoBlocked: false,
+  },
+  {
+    nanoid: "yt-sixP_dAJ8D4",
+    name: "EarthCam Live: Lincoln Harbor (New York City)",
+    sources: { youtube: ["https://www.youtube.com/live/sixP_dAJ8D4"] },
+    languages: ["eng"],
+    country: "us",
+    isGeoBlocked: false,
+  },
+  {
+    nanoid: "yt-H67j7H-7QD0",
+    name: "EarthCam Live: Coney Island (New York City)",
+    sources: { youtube: ["https://www.youtube.com/live/H67j7H-7QD0"] },
+    languages: ["eng"],
+    country: "us",
+    isGeoBlocked: false,
+  },
+  {
+    nanoid: "yt-R2jNOtYEwdI",
+    name: "New York Live Webcam - Manhattan Upper East Side",
+    sources: { youtube: ["https://www.youtube.com/live/R2jNOtYEwdI"] },
+    languages: ["eng"],
+    country: "us",
+    isGeoBlocked: false,
+  },
+  {
+    nanoid: "yt-obqnslJKrxc",
+    name: "🔴 New York City Live Cam in 4K 🔴 New York Harbor, Brooklyn & Manhattan Skyline, East River | 24/7",
+    sources: { youtube: ["https://www.youtube.com/live/obqnslJKrxc"] },
+    languages: ["eng"],
+    country: "us",
+    isGeoBlocked: false,
+  },
+  {
+    nanoid: "yt-1kvGNR_A3DY",
+    name: "Live NYC Brooklyn Bridge, Lower Manhattan & New York Harbor Cam",
+    sources: { youtube: ["https://www.youtube.com/live/1kvGNR_A3DY"] },
+    languages: ["eng"],
+    country: "us",
+    isGeoBlocked: false,
+  },
+];

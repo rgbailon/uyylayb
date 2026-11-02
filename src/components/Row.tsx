@@ -147,10 +147,9 @@ export function Row({
   moreHref,
 }: RowProps) {
   const { ref, seen } = useInView<HTMLElement>();
-  const [data, setData] = useState<Item[] | null>(
-    provided ?? (category ? categoryCached(medium, category) : null),
-  );
-  const [total, setTotal] = useState<number>(provided?.length ?? 0);
+  const initialData = provided ?? (category ? categoryCached(medium, category) : null);
+  const [data, setData] = useState<Item[] | null>(initialData);
+  const [total, setTotal] = useState<number>(initialData?.length ?? provided?.length ?? 0);
   const [error, setError] = useState(false);
 
   useEffect(() => {

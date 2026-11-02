@@ -79,6 +79,7 @@ export const RADIO_CATEGORIES: CategoryDef[] = [
 ];
 
 export const WEBCAM_CATEGORIES: CategoryDef[] = [
+  def("featured", "Featured Live", "🔴", "Curated live streams from around the world"),
   def("beach", "Beaches", "🏖️", "Shorelines in real time"),
   def("city", "Cityscapes", "🌆", "Skylines and busy squares"),
   def("nature", "Nature", "🌲", "Forests, plains and wilderness"),
@@ -148,6 +149,7 @@ export const HOME_ROWS: Record<Medium, string[]> = {
     "metal",
   ],
   webcams: [
+    "featured",
     "beach",
     "city",
     "nature",
