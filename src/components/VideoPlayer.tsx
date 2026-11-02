@@ -65,7 +65,7 @@ export function VideoPlayer({ item, medium, queue, mode, onClose, onToggleMode, 
   const [showVision, setShowVision] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [speed, setSpeed] = useState(1);
-  const [ytQuality, setYtQuality] = useState(medium === "webcams" ? "highres" : "default");
+  const [ytQuality, setYtQuality] = useState("default");
   const [captions, setCaptions] = useState(false);
   /** Seconds behind the live edge (0 = watching live). */
   const [behind, setBehind] = useState(0);
@@ -188,12 +188,6 @@ export function VideoPlayer({ item, medium, queue, mode, onClose, onToggleMode, 
           hls.on(HlsCtor.Events.MANIFEST_PARSED, () => {
             if (disposed) return;
             setLevels(hls.levels.map((l) => ({ height: l.height || 0, bitrate: l.bitrate })));
-            // Prefer the clearest available level for webcam feeds.
-            if (medium === "webcams" && hls.levels.length > 0) {
-              const top = hls.levels.length - 1;
-              hls.currentLevel = top;
-              setLevel(top);
-            }
             startPlay();
           });
           hls.on(HlsCtor.Events.LEVEL_SWITCHED, (_e, data) => setLevel(data.level));
@@ -778,7 +772,7 @@ export function VideoPlayer({ item, medium, queue, mode, onClose, onToggleMode, 
         onDoubleClick={surfaceDoubleClick}
         role="presentation"
         className={cn(
-          "absolute inset-0 z-[15]",
+          "absolute inset-0 z-[15] bg-transparent",
           mode === "theater" ? "cursor-pointer touch-none" : "touch-pan-y",
         )}
       />
@@ -912,7 +906,7 @@ export function VideoPlayer({ item, medium, queue, mode, onClose, onToggleMode, 
       <div
         data-chrome
         className={cn(
-          "pointer-events-none absolute inset-x-0 top-0 z-20 flex items-start justify-between gap-3 bg-gradient-to-b from-black/85 to-transparent p-3 transition-opacity duration-300 sm:p-4",
+          "pointer-events-none absolute inset-x-0 top-0 z-20 flex items-start justify-between gap-3 bg-transparent p-3 transition-opacity duration-300 sm:p-4",
           showChrome ? "opacity-100" : "opacity-0",
         )}
       >
@@ -996,7 +990,7 @@ export function VideoPlayer({ item, medium, queue, mode, onClose, onToggleMode, 
       <div
         data-chrome
         className={cn(
-          "absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/90 via-black/40 to-transparent px-3 pb-3 pt-10 transition-opacity duration-300 sm:px-4 sm:pb-4",
+          "absolute inset-x-0 bottom-0 z-20 bg-transparent px-3 pb-3 pt-10 transition-opacity duration-300 sm:px-4 sm:pb-4",
           showChrome ? "opacity-100" : "opacity-0",
         )}
       >
